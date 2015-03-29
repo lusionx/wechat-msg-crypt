@@ -1,10 +1,11 @@
 {
   "name": "wechat-msg-crypt",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "wechat msg crypt",
   "main": "index.js",
   "scripts": {
-    "prepublish": "coffee -o lib -c src/*.coffee"
+    "prepublish": "coffee -o lib -c src/*.coffee",
+    "test": "coffee test.coffee"
   },
   "repository": {
     "type": "git",
