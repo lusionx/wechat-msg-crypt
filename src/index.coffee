@@ -32,10 +32,14 @@ module.exports = class WechatMsg
     else
       xml = '<xml>'
       _.each msg, (v, k) ->
-        v = "![CDATA[" + v + "]]" if _.isString v
-        xml =+ "<#{k}>#{v}</#{k}>"
-      xml = '</xml>'
+        v = "<![CDATA[" + v + "]]>" if _.isString v
+        xml += "<#{k}>#{v}</#{k}>"
+      xml += '</xml>'
     enMsg = @wx.encrypt xml
     sign = @wx.getSignature timestamp, nonce, enMsg
-    "<xml> <Encrypt><![CDATA[#{enMsg}]]></Encrypt> <MsgSignature>#{sign}</MsgSignature> <TimeStamp>#{timestamp}</TimeStamp> <Nonce>#{nonce}</Nonce></xml>"
-
+    "<xml>
+      <Encrypt><![CDATA[#{enMsg}]]></Encrypt>
+      <MsgSignature><![CDATA[#{sign}]]></MsgSignature>
+      <TimeStamp>#{timestamp}</TimeStamp>
+      <Nonce><![CDATA[#{nonce}]]></Nonce>
+    </xml>"
