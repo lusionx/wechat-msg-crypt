@@ -1,18 +1,27 @@
 {
   "name": "wechat-msg-crypt",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "wechat msg crypt",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "lib/index.js"
+  ],
   "scripts": {
     "prepublish": "coffee -o lib -c src/*.coffee",
     "test": "coffee test.coffee"
   },
   "repository": {
     "type": "git",
-    "url": "http://git.oschina.net/lusionx/wechat-msg-crypt"
+    "url": "https://github.com/lusionx/wechat-msg-crypt"
   },
   "keywords": [
-    "weichat weixin message"
+    "wechat",
+    "weixin",
+    "message",
+    "crypto",
+    "crypt"
   ],
   "author": "liuxing",
   "license": "MIT",
